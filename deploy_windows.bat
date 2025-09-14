@@ -39,7 +39,7 @@ echo ✅ Python版本检查通过 (%PYTHON_VERSION%)
 uv --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo ⚠️ 未找到uv，正在安装...
-    pip install uv
+    pip install uv --break-system-packages
 )
 
 echo ✅ uv已安装
