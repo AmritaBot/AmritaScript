@@ -16,9 +16,10 @@ RUN apt-get update && apt-get install -y \
 # 复制项目文件
 COPY . .
 
-# 安装项目依赖
-RUN pip install uv \
-    && pip install amrita --break-system-packages
+RUN pip install --upgrade pip setuptools wheel
+&& pip install amrita --no-dependencies --break-system-packages
+&& pip install --break-system-packages pydantic tomli uvicorn nonebot2 python-multipart uv
+&& pip install --break-system-packages bcrypt aiofiles toml requests click colorama
 
 RUN amrita init
 
